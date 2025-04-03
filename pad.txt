@@ -1,0 +1,60 @@
+<div id="loading-spinner">
+	  <div class="gif-wrapper">
+		<img src="img/loader.gif" alt="Loading">
+	  </div>
+	</div>
+
+
+
+    #loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #191C2C; /* Optional background overlay */
+  display: flex;
+  justify-content: center; /* Horizontally center the wrapper */
+  align-items: center; /* Vertically center the wrapper */
+  z-index: 9999;
+  opacity: 1; /* Fully visible by default */
+  transition: opacity 1s ease; /* Fade-out effect */
+}
+
+#loading-spinner .gif-wrapper {
+  position: relative; /* Allows positioning of the GIF */
+}
+
+#loading-spinner img {
+  max-width: 100%; /* Ensure the GIF scales properly */
+  max-height: 100%; /* Ensure the GIF scales properly */
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  position: relative;
+  left: 0px; /* Move the GIF slightly to the right */
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+	const spinner = document.getElementById("loading-spinner");
+  
+	// Ensure the spinner is visible for at least 5 seconds
+	const minLoadingTime = 3000; // 3 seconds
+	const startTime = Date.now();
+  
+	window.onload = function () {
+	  const elapsedTime = Date.now() - startTime;
+	  const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+  
+	  setTimeout(() => {
+		spinner.style.opacity = "0"; // Start fade-out
+  
+		// Wait for the fade-out transition to complete before hiding the spinner
+		setTimeout(() => {
+		  spinner.style.display = "none"; // Hide the spinner completely
+		}, 1000); // Match the duration of the CSS transition (1s)
+	  }, remainingTime);
+	};
+  });
