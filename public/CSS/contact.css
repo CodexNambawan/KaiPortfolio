@@ -186,48 +186,41 @@ header {
   z-index: 99;
   background-color: #191C2C;
 }
-
 header .container {
   padding-top: 0px;
   padding-bottom: 0px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* Position hamburger button on the left */
 }
-
+@media (max-width: 1024px) {
+  header .container {
+    justify-content: start;
+  }
+}
 header .container #logo1 {
   width: 13vh;
   height: 13vh;
   margin: auto;
   border-radius: 100px;
 }
-
 header .container #logo2 {
   width: 8vh;
   height: 8vh;
-  margin: auto; /* Remove margin to prevent the logo from being pushed */
+  margin: auto;
   border-radius: 100px;
 }
-
 header .container #inactive {
   display: flex;
-  justify-content: center; /* Center all items in the container */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
   padding-right: 100px;
-  width: 100%; /* Ensure container takes full width */
-  position: relative; /* Ensure positioning of children */
+  width: 100%;
+  position: relative;
 }
-
 header .container .hamburger {
   position: absolute;
-  left: 10px; /* Adjust this value for spacing from the left edge */
-}
-
-@media (max-width: 1024px) {
-  header .container {
-    justify-content: start;
-  }
+  left: 10px;
 }
 header .container nav {
   display: grid;
@@ -235,7 +228,6 @@ header .container nav {
   grid-template-columns: repeat(5, auto);
   align-items: center;
 }
-
 @media (max-width: 1024px) {
   header .container nav {
     display: none;
@@ -250,41 +242,98 @@ header .container nav a {
   justify-content: center;
   align-items: center;
   height: 50%;
+  position: relative;
+  transition: color 0.3s;
+}
+header .container nav a:not(#logo1):after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #d499b5;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+header .container nav a:hover {
+  color: #d499b5;
+}
+header .container nav a:hover:not(#logo1):after {
+  width: 100%;
+  left: 0;
 }
 
-main .contact {
+.contact {
   background-color: #191C2C;
-}
-
-main .contact .container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 160px;
-  padding-bottom: 160px;
 }
-
-main .contact .container h2 {
+.contact .container {
+  padding-top: 0;
+  padding-bottom: 0;
+  text-align: center;
+}
+.contact .container.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-in-out, transform 1s ease-in-out;
+}
+.contact .container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contact .container .button-group {
+  padding-top: 40px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.contact .container .circle-button {
+  width: 100px;
+  height: 100px;
+  background-color: #fbb6d1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.contact .container .circle-button:hover {
+  background-color: #d499b5;
+}
+.contact .container .circle-button img {
+  width: 24px;
+  height: 24px;
+}
+.contact .container h2 {
   color: #FFF;
+  margin-bottom: 32px;
 }
-
-main .contact .container form {
+.contact .container form {
   display: block;
   margin: 0 auto;
   max-width: 680px;
+  border-bottom: 5px solid #fbb6d1;
+  padding-bottom: 20px;
 }
-
-main .contact .container form .form-grid {
+.contact .container form .form-grid {
   display: grid;
   grid-gap: 16px;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 16px;
 }
-
 @media (max-width: 767px) {
-  main .contact .container form .form-grid {
+  .contact .container form .form-grid {
     grid-template-columns: 1fr;
   }
 }
-main .contact .container form .form-grid .form-element,
-main .contact .container form .form-grid .form-area {
+.contact .container form .form-grid .form-element,
+.contact .container form .form-grid .form-area {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -299,51 +348,41 @@ main .contact .container form .form-grid .form-area {
   font-size: 20px;
   color: #313131;
 }
-
-main .contact {
-  background-color: #191C2C;
-  min-height: 100vh; /* Ensure the background fills the entire viewport height */
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-}
-
-main .contact .container {
-  padding-top: 0; /* Remove extra padding */
-  padding-bottom: 0; /* Remove extra padding */
-  text-align: center; /* Center the text inside the container */
-}
-
-main .contact .container h2 {
-  color: #FFF;
-  margin-bottom: 32px; /* Add spacing below the title */
-}
-
-main .contact .container form {
-  display: block;
-  margin: 0 auto;
-  max-width: 680px;
-}
-
-main .contact .container form .form-grid .form-element::-moz-placeholder, main .contact .container form .form-grid .form-area::-moz-placeholder {
+.contact .container form .form-grid .form-element::-moz-placeholder, .contact .container form .form-grid .form-area::-moz-placeholder {
   color: #AAA;
 }
-
-main .contact .container form .form-grid .form-element::placeholder,
-main .contact .container form .form-grid .form-area::placeholder {
+.contact .container form .form-grid .form-element::placeholder,
+.contact .container form .form-grid .form-area::placeholder {
   color: #AAA;
 }
-
-main .contact .container form .form-grid .form-area {
+.contact .container form .form-grid .form-area {
   grid-column: 1/-1;
 }
-
-main .contact .container form .right-align {
+.contact .container form .right-align {
+  padding-bottom: 20px;
   text-align: right;
+}
+.contact .container form .right-align .button {
+  transition: background-color 0.3s;
+  color: #191C2C;
+}
+.contact .container form .right-align .button:hover {
+  background-color: #d499b5;
+}
+.contact .container .center {
+  padding-bottom: 20px;
+  text-align: center;
+}
+.contact .container .center .button {
+  transition: background-color 0.3s;
+  color: #191C2C;
+}
+.contact .container .center .button:hover {
+  background-color: #d499b5;
 }
 
 @media (max-width: 767px) {
   .hide-mob {
     display: none;
   }
-} /*# sourceMappingURL=contact.css.map */
+}/*# sourceMappingURL=contact.css.map */

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const spinner = document.getElementById("loading-spinner");
 
     // Ensure the spinner is visible for at least 3 seconds
-    const minLoadingTime = 1000; // 3 seconds
+    const minLoadingTime = 0; // 3 seconds
     const startTime = Date.now();
 
     window.onload = function () {

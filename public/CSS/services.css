@@ -159,7 +159,7 @@ section h2 {
   display: inline-block;
   color: #FFF;
   font-size: 20px;
-  background-color: #F5C0D9;
+  background-color: #fbb6d1;
   padding: 12px 16px;
   border-radius: 8px;
   text-decoration: none;
@@ -167,12 +167,12 @@ section h2 {
   font-weight: 700;
   cursor: pointer;
 }
-
 @media (max-width: 1024px) {
   .button {
     font-size: 18px;
   }
 }
+
 img {
   max-width: 100%;
 }
@@ -186,48 +186,41 @@ header {
   z-index: 99;
   background-color: #191C2C;
 }
-
 header .container {
   padding-top: 0px;
   padding-bottom: 0px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* Position hamburger button on the left */
 }
-
+@media (max-width: 1024px) {
+  header .container {
+    justify-content: start;
+  }
+}
 header .container #logo1 {
   width: 13vh;
   height: 13vh;
   margin: auto;
   border-radius: 100px;
 }
-
 header .container #logo2 {
   width: 8vh;
   height: 8vh;
-  margin: auto; /* Remove margin to prevent the logo from being pushed */
+  margin: auto;
   border-radius: 100px;
 }
-
 header .container #inactive {
   display: flex;
-  justify-content: center; /* Center all items in the container */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
   padding-right: 100px;
-  width: 100%; /* Ensure container takes full width */
-  position: relative; /* Ensure positioning of children */
+  width: 100%;
+  position: relative;
 }
-
 header .container .hamburger {
   position: absolute;
-  left: 10px; /* Adjust this value for spacing from the left edge */
-}
-
-@media (max-width: 1024px) {
-  header .container {
-    justify-content: start;
-  }
+  left: 10px;
 }
 header .container nav {
   display: grid;
@@ -235,7 +228,6 @@ header .container nav {
   grid-template-columns: repeat(5, auto);
   align-items: center;
 }
-
 @media (max-width: 1024px) {
   header .container nav {
     display: none;
@@ -250,184 +242,207 @@ header .container nav a {
   justify-content: center;
   align-items: center;
   height: 50%;
+  position: relative;
+  transition: color 0.3s;
+}
+header .container nav a:not(#logo1):after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #d499b5;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+header .container nav a:hover {
+  color: #d499b5;
+}
+header .container nav a:hover:not(#logo1):after {
+  width: 100%;
+  left: 0;
 }
 
 /* ========================services=========================== */
-main .services {
+.services {
   padding-top: 160px;
-  padding-bottom: 64px;
+  padding-bottom: 20px;
   background-color: #191C2C;
 }
-
-main .services h2 {
+.services h2 {
   color: #FFF;
-}
-
-main .services .services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
-  grid-gap: 16px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-  main .services .services-grid {
-    grid-template-columns: 1fr; /* Full width on smaller screens */
-  }
-}
-main .services .services-grid .service:nth-child(3) {
-  grid-column: 1/3; /* Span across both columns */
-  justify-self: center; /* Center horizontally */
-  max-width: calc(50% - 16px); /* Keep width equal to others */
-}
-
-@media (max-width: 768px) {
-  main .services .services-grid .service:nth-child(3) {
-    max-width: 100%; /* Full width on mobile screens */
-    grid-column: 1/2; /* No spanning on small screens */
-  }
-}
-main .services .services-grid .service {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  background-color: #2a2d3e;
-  border-radius: 16px;
-  color: #ffffff;
-  width: 100%; /* Maintain width for all boxes */
-}
-
-main .services .services-grid .service.hidden {
-  border-radius: 16px;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 1s;
-}
-
-main .services .services-grid .service.hidden .content {
-  display: flex;
-  flex-direction: column;
-  opacity: 1;
-  color: #ffffff;
-  padding: 16px;
-  transition: 0.4s;
   text-align: center;
-  align-items: center;
+  margin-bottom: 32px;
+  font-size: 36px;
+  font-weight: bold;
 }
-
-main .services .services-grid .service.hidden .content .button {
-  justify-content: center;
-  display: flex;
-  width: 50%;
-  padding: 0.75rem 1.5rem;
-  background-color: #F5C0D9;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-main .services .services-grid .service.hidden .content .button:hover {
-  background-color: #d499b5;
-}
-
-main .services .services-grid .service.hidden .content h3 {
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-@media (max-width: 1024px) {
-  main .services .services-grid .service.hidden .content h3 {
-    font-size: 28px;
-  }
-}
-main .services .services-grid .service.hidden .content p {
-  font-size: 14px;
-  margin-bottom: 16px;
-}
-
-@media (max-width: 1024px) {
-  main .services .services-grid .service.hidden .content p {
-    font-size: 14px;
-  }
-}
-main .services .services-grid .service.show {
-  opacity: 1;
-}
-
-main .services .center {
-  text-align: center;
-}
-
-/* ========================contact=========================== */
-main .contact {
-  background-color: #191C2C;
-}
-
-main .contact .container {
-  padding-top: 100px;
-  padding-bottom: 64px;
-}
-
-main .contact .container h2 {
-  color: #FFF;
-}
-
-main .contact .container form {
-  display: block;
-  margin: 0 auto;
-  max-width: 680px;
-}
-
-main .contact .container form .form-grid {
+.services .services-grid {
   display: grid;
-  grid-gap: 16px;
   grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 16px;
+  gap: 24px;
+  margin-bottom: 32px;
 }
-
-@media (max-width: 767px) {
-  main .contact .container form .form-grid {
+@media (max-width: 768px) {
+  .services .services-grid {
     grid-template-columns: 1fr;
   }
 }
-main .contact .container form .form-grid .form-element,
-main .contact .container form .form-grid .form-area {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: none;
-  outline: none;
-  background: none;
-  display: block;
+.services .services-grid .service {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  color: #ffffff;
   width: 100%;
-  background-color: #FFF;
-  border-radius: 8px;
-  padding: 16px;
+  transition: transform 0.3s ease-in-out;
+  border-bottom: 5px solid #F5C0D9;
+}
+.services .services-grid .service:hover .icon {
+  transform: rotate(10deg);
+}
+.services .services-grid .service.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+.services .services-grid .service.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.services .services-grid .service .content {
+  flex: 1;
+  text-align: left;
+}
+.services .services-grid .service .content h3 {
+  font-size: 40px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.services .services-grid .service .content h3 .icon {
+  margin-right: 8px;
+}
+@media (max-width: 1024px) {
+  .services .services-grid .service .content h3 .icon {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .services .services-grid .service .content h3 {
+    font-size: 40px;
+  }
+}
+.services .services-grid .service .content p {
+  padding-top: 20px;
   font-size: 20px;
-  color: #313131;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #cfd1e1;
+}
+.services .services-grid .service .content .icon {
+  width: 80px;
+  height: 80px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease-in-out;
+}
+.services .services-grid .service .content .button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(145deg, #F5C0D9, #e3a3bf);
+  color: #191C2C;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+.services .services-grid .service .content .button:hover {
+  background: #d499b5;
+  transform: scale(1.05);
+}
+.services .services-grid .service:nth-child(3) {
+  grid-column: 1/span 2;
+  justify-self: center;
+  max-width: calc(50% - 16px);
+}
+@media (max-width: 768px) {
+  .services .services-grid .service:nth-child(3) {
+    max-width: 100%;
+    grid-column: 1;
+  }
+}
+.services .center {
+  text-align: center;
+}
+.services .center .button {
+  transition: background-color 0.3s;
+  color: #191C2C;
+}
+.services .center .button:hover {
+  background-color: #d499b5;
 }
 
-main .contact .container form .form-grid .form-element::-moz-placeholder, main .contact .container form .form-grid .form-area::-moz-placeholder {
-  color: #AAA;
+/* ========================contact=========================== */
+.contact {
+  background-color: #191C2C;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-main .contact .container form .form-grid .form-element::placeholder,
-main .contact .container form .form-grid .form-area::placeholder {
-  color: #AAA;
+.contact .container {
+  padding-top: 128px;
+  padding-bottom: 128px;
 }
-
-main .contact .container form .form-grid .form-area {
-  grid-column: 1/-1;
+.contact .container.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-in-out, transform 1s ease-in-out;
 }
-
-main .contact .container form .right-align {
-  text-align: right;
+.contact .container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contact .container .button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.contact .container .circle-button {
+  width: 50px;
+  height: 50px;
+  background-color: #fbb6d1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.contact .container .circle-button:hover {
+  background-color: #d499b5;
+}
+.contact .container .circle-button img {
+  width: 24px;
+  height: 24px;
+}
+.contact .container h2 {
+  color: #FFF;
+}
+.contact .container .center {
+  padding-bottom: 20px;
+  text-align: center;
+}
+.contact .container .center .button {
+  transition: background-color 0.3s;
+  color: #191C2C;
+}
+.contact .container .center .button:hover {
+  background-color: #d499b5;
 }
 
 @media (max-width: 767px) {
   .hide-mob {
     display: none;
   }
-} /*# sourceMappingURL=services.css.map */
+}/*# sourceMappingURL=services.css.map */

@@ -12,13 +12,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/CSS/index.css">
+<link rel="stylesheet" href="CSS/index.css">
 
 
 </head>
 <div id="loading-spinner">
 	<div class="gif-wrapper">
-	  <img src="img/loader.gif" alt="Loading">
+	  <img src="img/load.gif" alt="Loading">
 	</div>
 </div>
 
@@ -29,8 +29,8 @@
 			<nav>
 				<a href="index.html">Home</a>
 				<a href="pages/services.html">Services</a>
-				<a href="index.html"><img id="logo1" src="img/kailogo1.jpg" alt="logo"></a>
-				<a href="pages/gallery.html">Gallery</a>
+				<a id="logo1" href="index.html"><img id="logo1" src="img/kailogo1.jpg" alt="logo"></a>
+				<a href="pages/Illustrations.html">Illustrations</a>
 				<a href="pages/contact.html">Contact</a>
 			</nav>
 
@@ -40,14 +40,15 @@
 			<button class="hamburger">
 				<div class="bar"></div>
 			</button>
-			<img id="logo2" src="img/kailogo1.jpg" alt="logo">
+			<a id="logo2" href="index.html"><img id="logo2" src="img/kailogo1.jpg" alt="logo"></a>
+			
 		</div>
 
 	</header>
 	<nav class="mobile-nav">
 		<a href="index.html">Home</a>
 		<a href="pages/services.html">Services</a>
-		<a href="pages/gallery.html">Gallery</a>
+		<a href="pages/Illustrations.html">Illustrations </a>
 		<a href="pages/contact.html">Contact</a>
 	</nav>
 	<main>
@@ -67,7 +68,8 @@
 					<a href="https://x.com/xebeneleben" class="circle-button"><img src="img/twitter.png" alt="Icon 2"></a>
 					<a href="https://vgen.co/xebeneleben" class="circle-button"><img src="img/vgen.png" alt="Icon 3"></a>
 				</div>
-				<a href="#" class="button">Find out more</a>
+				
+				<!-- <a href="#" class="button">Find out more</a> -->
 			</div>
 
 		</section>
@@ -123,7 +125,7 @@
 				</div>
 
 				<div class="center">
-					<a href="#" class="button">View more</a>
+					<a href="pages/gallery.html" class="button">View more</a>
 				</div>
 			</div>
 		</section>
@@ -135,30 +137,25 @@
 				<div class="services-grid">
 					<div class="service hidden">
 						<div class="content">
-							<h3>Illustrations</h3>
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, mollitia voluptas
-								dolore reprehenderit nulla consectetur ipsa accusantium facilis! Cumque, voluptate!</p>
+							<h3><img src="img/illus.png" alt="Icon" class="icon"> Illustrations</h3>
+							<p>Custom digital and traditional artwork tailored to your brand’s aesthetic, from character designs to product visuals.</p>
 						</div>
 					</div>
 					<div class="service hidden">
 						<div class="content">
-							<h3>Branding & Identity</h3>
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, mollitia voluptas
-								dolore reprehenderit nulla consectetur ipsa accusantium facilis! Cumque, voluptate!</p>
+							<h3><img src="img/brand.png" alt="Icon" class="icon"> Branding & Identity</h3>
+							<p>Cohesive brand identity creation, including logos, color palettes, typography, and brand guidelines to ensure consistency and recognition.</p>
 						</div>
 					</div>
 					<div class="service hidden">
 						<div class="content">
-							<h3>Social Media Content</h3>
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, mollitia voluptas
-								dolore reprehenderit nulla consectetur ipsa accusantium facilis! Cumque, voluptate!</p>
+							<h3><img src="img/smc.png" alt="Icon" class="icon"> Social Media Content</h3>
+							<p>Engaging graphics, banners, posts, and stories optimized for all platforms to enhance audience engagement and brand presence.</p>
 						</div>
 					</div>
-
 				</div>
-
 				<div class="center">
-					<a href="#" class="button">View more</a>
+					<a href="pages/services.html" class="button">Learn More</a>
 				</div>
 			</div>
 		</section>
@@ -166,19 +163,20 @@
 
 
 		<section class="contact" id="contact">
-			<div class="container">
-				<h2>Contact</h2>
+			<div class="container hidden">
+				<h2>Interested in my work?</h2>
 
-				<form>
-					<div class="form-grid">
-						<input type="text" name="name" id="name" placeholder="Name" class="form-element" />
-						<input type="email" name="email" id="email" placeholder="Email" class="form-element" />
-						<textarea name="message" id="message" placeholder="Messsage" class="form-area"></textarea>
-					</div>
-					<div class="right-align">
-						<input type="submit" value="Send message" class="button" />
-					</div>
-				</form>
+				<div class="center">
+					<a href="pages/contact.html" class="button">Get a Quote</a>
+				</div>
+
+				<div class="button-group">
+					<a href="https://www.instagram.com/kaikailuh/" class="circle-button"><img src="img/insta.png" alt="Icon 1"></a>
+					<a href="https://x.com/xebeneleben" class="circle-button"><img src="img/twitter.png" alt="Icon 2"></a>
+					<a href="https://vgen.co/xebeneleben" class="circle-button"><img src="img/vgen.png" alt="Icon 3"></a>
+				</div>
+					
+				
 			</div>
 		</section>
 	</main>

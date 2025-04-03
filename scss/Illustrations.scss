@@ -67,32 +67,33 @@ $spurple: #191C2C;
     background: none;
     outline: none;
     border: none;
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
+    padding: 8px 0;
   
-  .hamburger .bar,
-  .hamburger:after,
-  .hamburger:before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 6px;
-    background-color: #FFF;
-    margin: 5px 0px;
-    transition: 0.4s;
-  }
+    .bar,
+    &:after,
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 6px;
+      background-color: #FFF;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
   
-  .hamburger.is-active:before {
-    transform: rotate(-45deg) translate(-8px, 6px);
-  }
+    &.is-active {
+      &:before {
+        transform: rotate(-45deg) translate(-8px, 6px);
+      }
   
-  .hamburger.is-active:after {
-    transform: rotate(45deg) translate(-9px, -8px);
-  }
+      &:after {
+        transform: rotate(45deg) translate(-9px, -8px);
+      }
   
-  .hamburger.is-active .bar {
-    opacity: 0;
+      .bar {
+        opacity: 0;
+      }
+    }
   }
   
   .mobile-nav {
@@ -160,16 +161,15 @@ $spurple: #191C2C;
     display: inline-block;
     color: #FFF;
     font-size: 20px;
-    background-color: #F5C0D9;
+    background-color: $spink;
     padding: 12px 16px;
     border-radius: 8px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
-  }
-  @media (max-width: 1024px) {
-    .button {
+  
+    @media (max-width: 1024px) {
       font-size: 18px;
     }
   }
@@ -272,136 +272,207 @@ $spurple: #191C2C;
     }
   }
   
-
-
-.contact {
-  background-color: #191C2C;
-    min-height: 100vh; // Ensure the background fills the entire viewport height
-    display: flex; // Use flexbox for centering
-    justify-content: center; // Center horizontally
-    align-items: center; // Center vertically
-    padding-top: 160px; // Add padding to the top for spacing
-
-  .container {
-    padding-top: 0; // Remove extra padding
-    padding-bottom: 0; // Remove extra padding
-    text-align: center; // Center the text inside the container
-
-    &.hidden {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-in-out, transform 1s ease-in-out;
-    }
-
-    &.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .button-group {
-      padding-top: 40px;
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    
-    .circle-button {
-      width: 100px;
-      height: 100px;
-      background-color: $spink;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    
-      &:hover {
-        background-color: $spink2;
-      }
-    
-      img {
-        width: 24px;
-        height: 24px;
-      }
-    }
+  
+  .gallery {
+    padding-top: 160px;
+    padding-bottom: 64px;
+    background-color: #191C2C;
 
     h2 {
       color: #FFF;
-      margin-bottom: 32px; // Add spacing below the title
+      padding-bottom: 64px;
+      margin-bottom: auto;
     }
 
-    form {
-      display: block;
-      margin: 0 auto;
-      max-width: 680px;
-      border-bottom: 5px solid $spink; // Add a border to the form
-      padding-bottom: 20px; // Add padding below the form
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 16px;
+      margin-bottom: 20px;
 
-      .form-grid {
-        display: grid;
-        grid-gap: 16px;
-        grid-template-columns: repeat(2, 1fr);
-        margin-bottom: 16px;
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
 
-        @media (max-width: 767px) {
-          grid-template-columns: 1fr;
+      .gallery-item {
+        &.hidden {
+          position: relative;
+          overflow: hidden;
+          opacity: 0;
+          transition: all 1s;
+
+          .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          transition: transform 0.4s ease;
         }
 
-        .form-element,
-        .form-area {
+        .hover-card {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba($spink, 0.8);
+          color: #ffffff;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          text-align: center;
+          padding: 16px;
+          text-decoration: none;
+        }
+
+        &:hover {
+          img {
+            transform: scale(1.1);
+          }
+
+          .hover-card {
+            opacity: 1;
+
+            
+          }
+
+          .buttonp {
+            opacity: 1;
+              }
+        }
+
+        h3 {
+          font-size: 40px;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 20px;
+          margin: 4px 0;
+          transition: opacity 0.4s ease;
+        }
+
+        .buttonp {
           appearance: none;
           border: none;
           outline: none;
           background: none;
-          display: block;
-          width: 100%;
-          background-color: #FFF;
-          border-radius: 8px;
-          padding: 16px;
+          display: inline-block;
+          color: #FFF;
           font-size: 20px;
-          color: #313131;
+          padding: 12px 16px;
+          border-radius: 8px;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-weight: 700;
+          cursor: pointer;
+          position: absolute;
+          bottom: 10%;
+          padding: 0.75rem 1.5rem;
+          color: #191C2C;
+          text-decoration: none;
+          border-radius: 5px;
+          transition: color 0.3s, opacity 0.4s ease;
+          opacity: 0;
 
-          &::placeholder {
-            color: #AAA;
+          @media (max-width: 1024px) {
+            font-size: 18px;
+          }
+
+          &:hover {
+            color: $spink2;
+          }
+        }
           }
         }
 
-        .form-area {
-          grid-column: 1 / -1;
+        &.show {
+          opacity: 1;
+        }
+      }
+    }
+
+   
+  }
+  .contact {
+    background-color: #191C2C;
+    min-height: 100vh; // Ensure the background fills the entire viewport height
+    display: flex; // Use flexbox for centering
+    justify-content: center; // Center horizontally
+    align-items: center; // Center vertically
+
+    .container {
+      padding-top: 128px;
+      padding-bottom: 128px;
+
+      &.hidden {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-in-out, transform 1s ease-in-out;
+      }
+  
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
+      .circle-button {
+        width: 50px;
+        height: 50px;
+        background-color: $spink;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      
+        &:hover {
+          background-color: $spink2;
+        }
+      
+        img {
+          width: 24px;
+          height: 24px;
         }
       }
 
-      .right-align {
+      h2 {
+        color: #FFF;
+      }
+
+      
+
+      .center {
         padding-bottom: 20px;
-      text-align: right;
-      .button{
-        transition: background-color 0.3s;
-        color: #191C2C;
-        &:hover {
-          background-color: #d499b5;
-        }
-      }
-      }
-    }
-
-    .center {
-      padding-bottom: 20px;
-      text-align: center;
-      .button{
-        transition: background-color 0.3s;
-        color: #191C2C;
-        &:hover {
-          background-color: #d499b5;
+        text-align: center;
+        .button{
+          transition: background-color 0.3s;
+          color: #191C2C;
+          &:hover {
+            background-color: #d499b5;
+          }
         }
       }
     }
   }
-}
 
-@media (max-width: 767px) {
-  .hide-mob {
-    display: none;
+  @media (max-width: 767px) {
+    .hide-mob {
+      display: none;
+    }
   }
-}
