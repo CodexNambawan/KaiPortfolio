@@ -293,6 +293,10 @@ header {
         position: relative;
         transition: color 0.3s;
 
+        &:not(#logo1){
+          max-width: 80px;
+        }
+
         &:not(#logo1):after {
           content: "";
           position: absolute;

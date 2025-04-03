@@ -238,6 +238,9 @@ header .container nav a {
   position: relative;
   transition: color 0.3s;
 }
+header .container nav a:not(#logo1) {
+  max-width: 80px;
+}
 header .container nav a:not(#logo1):after {
   content: "";
   position: absolute;
