@@ -118,10 +118,12 @@ $spurple: #191C2C;
     margin: 0 auto 16px;
     text-align: center;
     padding: 12px 16px;
-    background-color: #191C2C;
+    background-color: $spink;
     border-radius: 25px;
     color: #FFF;
     text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
   }
   
   .mobile-nav a:hover {
@@ -203,6 +205,8 @@ $spurple: #191C2C;
         height: 13vh;
         margin: auto;
         border-radius: 100px;
+        background: url(../img/kailogo1.jpg) no-repeat center;
+        background-size: contain;
       }
   
       #logo2 {
@@ -210,6 +214,8 @@ $spurple: #191C2C;
         height: 8vh;
         margin: auto;
         border-radius: 100px;
+        background: url(../img/kailogo1.jpg) no-repeat center;
+        background-size: contain;
       }
   
       #inactive {
@@ -238,7 +244,8 @@ $spurple: #191C2C;
   
         a {
           color: inherit;
-          font-size: 20px;
+          font-size: 24px;
+        font-weight: 500;
           text-align: center;
           text-decoration: none;
           display: inline-flex;
@@ -328,12 +335,19 @@ $spurple: #191C2C;
       img {
         width: 24px;
         height: 24px;
+        
       }
     }
 
     h2 {
       color: #FFF;
-      margin-bottom: 32px; // Add spacing below the title
+      margin-bottom: 32px;
+      user-select: none; // Prevent text selection
+    }
+
+    #title2{
+      padding-top: 40px;
+      margin-bottom: 20px;
     }
 
     form {

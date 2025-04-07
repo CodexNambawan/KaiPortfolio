@@ -1,8 +1,14 @@
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-};
+
 
 document.addEventListener("DOMContentLoaded", function () {
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+    console.log("Page loaded, scrolling to top...");
+
+
+
     const spinner = document.getElementById("loading-spinner");
 
     // Ensure the spinner is visible for at least 3 seconds
@@ -10,8 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const startTime = Date.now();
 
     window.onload = function () {
+        
+        
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+        
 
         setTimeout(() => {
             spinner.style.opacity = "0"; // Start fade-out
@@ -64,4 +73,6 @@ menu_btn.addEventListener('click', function () {
     menu_btn.classList.toggle('is-active');
     mobile_menu.classList.toggle('is-active');
 });
+
+//carousel
 
