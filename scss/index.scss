@@ -232,7 +232,8 @@ header {
   left: 0;
   width: 100%;
   z-index: 99;
-  background-color: #191C2C;
+  background-color: rgba(25, 28, 44, 1);
+  
 
   .container {
     padding-top: 0px;
@@ -240,6 +241,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
 
     @media (max-width: 1024px) {
       justify-content: start;
@@ -410,6 +412,10 @@ main {
         font-size: 2.5rem;
         font-weight: 100;
         margin: 1rem 0;
+
+        span{
+          color: #F5C0D9;
+        }
       }
 
       .button {
@@ -473,6 +479,27 @@ main {
         flex-direction: column;
         align-items: center;
 
+        .hover-icon {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          font-size: 20px;
+          color: rgba(255, 255, 255, 0.85);
+          background-color: rgba($spink2, 0.8);
+          padding: 10px;
+          border-radius: 100%;
+          z-index: 2;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+          pointer-events: none; // So it doesn't block hover on the image
+      
+        
+          @media (max-width: 768px) {
+            font-size: 20px;
+            top: 8px;
+            right: 8px;
+          }
+        }
+
         img {
           width: 100%;
           height: auto;
@@ -502,11 +529,12 @@ main {
           img {
             transform: scale(1.1);
           }
+          .hover-icon {
+            opacity: 0;
+          }
 
           .hover-card {
-            opacity: 1;
-
-            
+            opacity: 1;            
           }
 
           .buttonp {

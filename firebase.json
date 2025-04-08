@@ -5,6 +5,36 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/services",
+        "destination": "/pages/services.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/pages/contact.html"
+      },
+      {
+        "source": "/Illustrations",
+        "destination": "/pages/Illustrations.html"
+      },
+      {
+        "source": "/home",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/portraits",
+        "destination": "/pages/portraits.html"
+      },
+      {
+        "source": "/chibi-art",
+        "destination": "/pages/chibi-art.html"
+      },
+      {
+        "source": "/character-sheet",
+        "destination": "/pages/character-sheet.html"
+      }
     ]
   }
 }
