@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#user-info {
+  display: flex;
+  align-items: center;
+}
+
+#login-btn, #logout-btn {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+main {
+  padding: 20px;
+}
+
+#gallery-management {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#upload-image {
+  margin-bottom: 20px;
+}
+
+#image-preview {
+  margin-top: 10px;
+  max-width: 200px;
+  max-height: 150px;
+  margin-bottom: 15px;
+}
+
+#images-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  max-width: 200px;
+  text-align: center;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  margin-top: 20px;
+}/*# sourceMappingURL=admin.css.map */

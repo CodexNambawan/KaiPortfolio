@@ -198,7 +198,7 @@ header .container #logo1 {
   height: 13vh;
   margin: auto;
   border-radius: 100px;
-  background: url(../img/kailogo1.jpg) no-repeat center;
+  background: url(../img/kailogo1.webp) no-repeat center;
   background-size: contain;
 }
 header .container #logo2 {
@@ -206,7 +206,7 @@ header .container #logo2 {
   height: 8vh;
   margin: auto;
   border-radius: 100px;
-  background: url(../img/kailogo1.jpg) no-repeat center;
+  background: url(../img/kailogo1.webp) no-repeat center;
   background-size: contain;
 }
 header .container #inactive {

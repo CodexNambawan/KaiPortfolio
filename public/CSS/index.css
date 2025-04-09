@@ -235,7 +235,7 @@ header .container #logo1 {
   height: 13vh;
   margin: auto;
   border-radius: 100px;
-  background: url(../img/kailogo1.jpg) no-repeat center;
+  background: url(../img/kailogo1.webp) no-repeat center;
   background-size: contain;
 }
 header .container #logo2 {
@@ -243,7 +243,7 @@ header .container #logo2 {
   height: 8vh;
   margin: auto;
   border-radius: 100px;
-  background: url(../img/kailogo1.jpg) no-repeat center;
+  background: url(../img/kailogo1.webp) no-repeat center;
   background-size: contain;
 }
 header .container #inactive {
@@ -334,7 +334,7 @@ main section.banner .background {
   z-index: 1;
 }
 main section.banner .middle2 {
-  background-image: url("../img/stars.png");
+  background-image: url("../img/stars.webp");
   z-index: 2;
   opacity: 1;
   scale: 100%;
@@ -346,7 +346,7 @@ main section.banner .middle2 {
   }
 }
 main section.banner .middle {
-  background-image: url("../img/Background1.png");
+  background-image: url("../img/Background1.webp");
   z-index: 3;
   opacity: 1;
   scale: 100%;
@@ -358,7 +358,7 @@ main section.banner .middle {
   }
 }
 main section.banner .foreground {
-  background-image: url("../img/Background2.png");
+  background-image: url("../img/Background2.webp");
   z-index: 4;
   scale: 100%;
 }
