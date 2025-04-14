@@ -6,25 +6,67 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  background-color: #191C2C;
 }
 
 header {
-  background-color: #333;
+  background-color: #fbb6d1;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+header .user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+header .user-info.not-logged-in .user-email {
+  color: #6c757d;
+  font-weight: 500;
+}
+header .user-info.logged-in .profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid #ddd;
+  transition: transform 0.3s ease;
+}
+header .user-info.logged-in .profile-picture:hover {
+  transform: scale(1.05);
+}
+header .user-info.logged-in .user-email {
+  font-weight: bold;
+  color: #343a40;
+}
+header .user-info.logged-in .user-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+header .user-info.logged-in .user-actions button {
+  background-color: #007bff;
   color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+header .user-info.logged-in .user-actions button:hover {
+  background-color: #0056b3;
+}
+header .user-info.logged-in .user-actions button#home {
+  background-color: #d499b5;
+}
+header .user-info.logged-in .user-actions button#home:hover {
+  background-color: pink;
 }
 
-#user-info {
-  display: flex;
-  align-items: center;
-}
-
-#login-btn, #logout-btn {
-  background-color: #0066cc;
+#home {
+  background-color: #fbb6d1;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -38,43 +80,127 @@ main {
 }
 
 #gallery-management {
-  background-color: white;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f1e9f2;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+#gallery-management h2, #gallery-management h3 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+#gallery-management #upload-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+#gallery-management #upload-image input[type=file],
+#gallery-management #upload-image input[type=text],
+#gallery-management #upload-image textarea,
+#gallery-management #upload-image select,
+#gallery-management #upload-image button {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  transition: border 0.2s ease;
 }
-
-#upload-image {
-  margin-bottom: 20px;
+#gallery-management #upload-image input[type=file]:focus,
+#gallery-management #upload-image input[type=text]:focus,
+#gallery-management #upload-image textarea:focus,
+#gallery-management #upload-image select:focus,
+#gallery-management #upload-image button:focus {
+  border-color: #3498db;
+  outline: none;
 }
-
-#image-preview {
-  margin-top: 10px;
-  max-width: 200px;
-  max-height: 150px;
-  margin-bottom: 15px;
+#gallery-management #upload-image textarea {
+  resize: vertical;
+  min-height: 100px;
 }
-
-#images-list {
-  display: flex;
-  flex-wrap: wrap;
+#gallery-management #upload-image button {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
 }
-
-.image-card {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px;
-  max-width: 200px;
+#gallery-management #upload-image button:hover {
+  background-color: #2980b9;
+}
+#gallery-management #upload-image #image-preview {
+  grid-column: 1/-1;
+  margin-top: 1rem;
   text-align: center;
 }
-
-button {
-  background-color: #007BFF;
-  color: white;
-  padding: 5px 10px;
-  margin: 5px;
+#gallery-management #upload-image #image-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+#gallery-management #images-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+#gallery-management #images-list .image-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+#gallery-management #images-list .image-card:hover {
+  transform: translateY(-4px);
+}
+#gallery-management #images-list .image-card img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+#gallery-management #images-list .image-card h4 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1rem;
+  color: #34495e;
+}
+#gallery-management #images-list .image-card p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+#gallery-management #images-list .image-card .delete-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #e74c3c;
+  color: #fff;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 4px;
+  font-size: 0.9rem;
+}
+#gallery-management #images-list .image-card .delete-btn:hover {
+  background-color: #c0392b;
+}
+#gallery-management #search-bar {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+#gallery-management #search-bar:focus {
+  border-color: #3498db;
+  outline: none;
 }
 
 footer {

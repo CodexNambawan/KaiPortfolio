@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="../CSS/admin.css">
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <link rel="icon" type="image/x-icon" href="../img/kailogo1.webp">
 </head>
 <body>
   <header>
-    <div id="user-info">
-      <p id="user-email">Not logged in</p>
-      <button id="login-btn">Login</button>
-      <button id="logout-btn" style="display: none;">Logout</button>
+    <div class="user-info not-logged-in">
+      <p class="user-email">Not logged in</p>
+    </div>
+  
+    <div class="user-info logged-in" style="display: none;">
+      <img class="profile-picture" src="" alt="Profile Picture" />
+      <p class="user-email">User Email</p>
+      <div class="user-actions">
+        <button id="home" onclick="location.href='/home'">Home</button>
+        <button id="logout-btn">Logout</button>
+      </div>
     </div>
   </header>
   
@@ -26,35 +30,34 @@
         <input type="file" id="image-upload" accept="image/*">
         <input type="text" id="image-title" placeholder="Image Title">
         <textarea id="image-description" placeholder="Image Description"></textarea>
+        <select id="image-type">
+          <option value="Commission">Commissioned</option>
+          <option value="Personal">Personal</option>
+          <option value="Other">Other</option>
+        </select>
         <button id="upload-btn">Upload Image</button>
-        <div id="image-preview"></div>
       </div>
 
       <h3>Existing Images</h3>
+      <input type="text" id="search-bar" placeholder="Search...">
       <div id="images-list">
-        <!-- Dynamically populate with images from Firestore -->
+        
         <div class="image-card">
-          <img src="https://via.placeholder.com/150" alt="Sample Image 1" style="max-width: 100%; max-height: 100px;">
-          <h4>Sample Image 1</h4>
-          <p>This is a description of the sample image.</p>
+          <img id="imgholder" src="../img/Portfolio Tester.webp" alt="Sample Image 1" style="max-width: 100%; max-height: 200px;">
+          <h4 id="title">Sample Image 1</h4>
+          <p id="description">This is a description of the sample image.</p>
+          <p id="type">Commissioned</p>
           <button class="delete-btn" data-id="1">Delete</button>
         </div>
-        <div class="image-card">
-          <img src="https://via.placeholder.com/150" alt="Sample Image 2" style="max-width: 100%; max-height: 100px;">
-          <h4>Sample Image 2</h4>
-          <p>This is another description of a sample image.</p>
-          <button class="delete-btn" data-id="2">Delete</button>
-        </div>
+        
+        
+        
       </div>
 
-      <input type="text" id="search-bar" placeholder="Search...">
+      
     </section>
   </main>
 
-  <footer>
-    <p>Admin Dashboard - Gallery Management</p>
-  </footer>
-
-  <script src="app.js"></script>
+  <script type="module" src="../JS/admin.js"></script>
 </body>
 </html>

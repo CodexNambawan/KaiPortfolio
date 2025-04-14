@@ -364,6 +364,9 @@ header .container nav a:hover:not(#logo1):after {
   margin: 4px 0;
   transition: opacity 0.4s ease;
 }
+.gallery .gallery-grid .gallery-item.hidden .content #type {
+  font-weight: 700;
+}
 .gallery .gallery-grid .gallery-item.hidden .content .buttonp {
   -webkit-appearance: none;
      -moz-appearance: none;

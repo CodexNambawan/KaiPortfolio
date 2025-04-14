@@ -74,5 +74,21 @@ menu_btn.addEventListener('click', function () {
     mobile_menu.classList.toggle('is-active');
 });
 
-//carousel
+
+
+let typedBuffer = "";
+
+document.addEventListener("keydown", (event) => {
+  if (event.key.length === 1) {
+    typedBuffer += event.key.toLowerCase();
+
+    if (typedBuffer.length > 20) {
+      typedBuffer = typedBuffer.slice(-20);
+    }
+
+    if (typedBuffer.includes("adminopen")) {
+        window.location.href = "/login";
+    }
+  }
+});
 

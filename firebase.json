@@ -34,6 +34,14 @@
       {
         "source": "/character-sheet",
         "destination": "/pages/character-sheet.html"
+      },
+      {
+        "source": "/login",
+        "destination": "/pages/login.html"
+      },
+      {
+        "source": "/adminpage",
+        "destination": "/pages/admin.html"
       }
     ]
   }
